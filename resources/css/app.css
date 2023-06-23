@@ -1,0 +1,104 @@
+:root {
+  --height-H-F: 20vh;
+  --color: grey;
+  --background-color: rgba(0, 0, 255, 0.1);
+  --border: 1px solid black;
+  --border-2: 1px solid gray;
+  --border-3: 1px solid white;
+  --border-4: 1px solid red;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  border: var(--border-4);
+  color: black;
+  background-color: var(--background-color);
+}
+
+a {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 100vh;
+}
+body > #content {
+  height: calc(100vh - var(--height-H-F));
+}
+body > header, body > footer {
+  height: 20vh;
+}
+body > header {
+  display: flex;
+  flex-flow: row nowrap;
+}
+body > header > * {
+  height: 100%;
+}
+body > header > #logo {
+  width: var(--height-H-F);
+}
+body > header > #logo > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body > header > .right {
+  width: calc(100vw - var(--height-H-F));
+}
+body > header > .right > #portfolio {
+  text-align: right;
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+}
+body > header > .right > nav {
+  height: 25%;
+  display: flex;
+}
+body > header > .right > nav > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1500px) {
+  * {
+    border: var(--border);
+    color: black;
+  }
+  body {
+    background-color: white;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  * {
+    border: var(--border-2);
+    color: white;
+  }
+  body {
+    background-color: grey;
+  }
+}
+@media only screen and (max-width: 500px) {
+  * {
+    border: var(--border-3);
+    color: white;
+  }
+  body {
+    background-color: black;
+  }
+}/*# sourceMappingURL=app.css.map */
