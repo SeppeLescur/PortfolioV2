@@ -12,7 +12,6 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  border: var(--border-4);
   color: black;
   background-color: var(--background-color);
 }
@@ -27,12 +26,55 @@ body {
   flex-flow: column nowrap;
   justify-content: space-between;
   height: 100vh;
+  overflow-y: hidden;
 }
 body > #content {
-  height: calc(100vh - var(--height-H-F));
+  height: calc(100vh - 1.4 * var(--height-H-F));
+}
+body > #content .carousel {
+  height: calc(100vh - 1.4 * var(--height-H-F));
+  overflow-x: hidden;
+  width: 100vw;
+  display: flex;
+  flex-flow: row;
+}
+body > #content .carousel > .carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+}
+body > #content .carousel > .carousel-control.prev {
+  left: 10px;
+}
+body > #content .carousel > .carousel-control.next {
+  right: 10px;
+}
+body > #content .carousel > .slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+body > #content .carousel > .slide > .slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 body > header, body > footer {
-  height: 20vh;
+  height: var(--height-H-F);
 }
 body > header {
   display: flex;
@@ -69,8 +111,9 @@ body > header > .right > nav > a {
   justify-content: center;
   align-items: center;
 }
-body footer {
+body > footer {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
 }

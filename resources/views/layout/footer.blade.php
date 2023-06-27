@@ -1,1 +1,1 @@
-<footer>FOOTER</footer>
+<footer>&copy Seppe Lescur {{date('Y')}}</footer>

@@ -1,7 +1,9 @@
 @extends('layout.layout')
+
 @section('title')
 Contact
 @endsection
 @section('content')
-Contact me
+    <?php include('../resources/views/slidesData/contact.blade.php'); ?>
+    @include('components.carousel',['slides'=>$slides])
 @endsection
