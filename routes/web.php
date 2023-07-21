@@ -19,6 +19,8 @@ Route::get('/contact-me',function() : View{
 })->name('contact-me');
     Route::post('/contact-me/store',[MessageController::class, 'store'])
     ->name('contact-me.store');
+    Route::get('/contact-me/index',[MessageController::class, 'index'])
+    ->name('contact-me.index');
     
 Route::get('/mail-template',function() : View{
     return View('emails.contact-mail');

@@ -20,9 +20,11 @@ class Contact extends Mailable
      * 
      * TODO: create Message model
      */
-    public function __construct(protected Message $message )
+    private $data = [];
+
+    public function __construct($data)
     {
-        
+        $this->data = $data;
     }
 
     /**
@@ -30,10 +32,7 @@ class Contact extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(
-            from: new Address($this->message->email,$this->message->name),
-            subject: $this->message->subject,
-        );
+        return new Envelope();
     }
 
     /**
@@ -41,14 +40,7 @@ class Contact extends Mailable
      */
     public function content(): Content
     {
-        return new Content(
-            view: 'emails.contact-mail',
-            with: [
-                'name'=>$this->message->name,
-                'subject'=>$this->message->subject,
-                'content'=>$this->message->content
-            ]
-        );
+        return new Content();
     }
 
     /**
@@ -59,5 +51,12 @@ class Contact extends Mailable
     public function attachments(): array
     {
         return [];
+    }
+    
+    public function build()
+    {
+        return $this->from('seppelescur.work@gmail.com','Seppe Lescur')
+        ->subject($this->data['subject'])
+        ->view('emails.contact-mail')->with('data',$this->data);
     }
 }

@@ -95,8 +95,13 @@ body > #content .carousel > .slide > .slide-content > * a {
 body > #content .carousel > .slide > .slide-content .title-section .more {
   display: block;
 }
-body > #content .carousel > .slide > .slide-content .articles > * {
+body > #content .carousel > .slide > .slide-content .articles > article {
   min-height: calc((100vh - 1.4 * var(--height-H-F)) / 3);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1fr;
+  text-align: center;
 }
 body > #content .carousel > .slide > .slide-content .showcase {
   display: grid;

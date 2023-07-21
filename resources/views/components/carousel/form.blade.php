@@ -1,5 +1,6 @@
-<form action="{{route('contact-me.store')}}" method="{{$form['method']}}">
+<form action="{{route('contact-me.index')}}" method="GET">
     @csrf
+    @method('GET')
     <label>FORM</label>
     <label for="email">email<input type="email" name="email" id='email' placeholder="email@example.com"></label>
     <label for="name">name<input type="text" name="name" id='name' placeholder=""></label>
