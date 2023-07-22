@@ -1,10 +1,7 @@
-<form action="{{route('contact-me.index')}}" method="GET">
-    @csrf
-    @method('GET')
-    <label>FORM</label>
-    <label for="email">email<input type="email" name="email" id='email' placeholder="email@example.com"></label>
-    <label for="name">name<input type="text" name="name" id='name' placeholder=""></label>
-    <label for="subject">subject<input type="text" name="subject" id='subject' placeholder=""></label>
-    <label for="content">content<textarea name="content" id='content' placeholder=""></textarea></label>
-    <button type="submit">Send</button>
+<form method="POST" action="{{ route('contact.send') }}">
+  @csrf
+  <input type="text" name="name" placeholder="Your Name">
+  <input type="email" name="email" placeholder="Your Email">
+  <textarea name="message" placeholder="Your Message"></textarea>
+  <button type="submit">Send</button>
 </form>

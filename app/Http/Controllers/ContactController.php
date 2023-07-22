@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function show()
     {
-        return view('contact');
+        return view('contact-me');
     }
 
     public function send(Request $request)
@@ -21,7 +21,7 @@ class ContactController extends Controller
             'message' => $request->input('message')
         ];
 
-        Mail::to('your-email@example.com')->send(new ContactFormMail($data));
+        Mail::to('seppelescur.work@gmail.com')->send(new ContactFormMail($data));
 
         return redirect()->back()->with('success', 'Email sent successfully!');
     }
