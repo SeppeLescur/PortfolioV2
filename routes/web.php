@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
@@ -13,9 +14,18 @@ Route::get('/about',function() : View{
 Route::get('/projects',function() : View{
     return View('projects');
 })->name('projects');
+
 Route::get('/contact-me',function() : View{
     return View('contact-me');
 })->name('contact-me');
+    Route::post('/contact-me/store',[MessageController::class, 'store'])
+    ->name('contact-me.store');
+    Route::get('/contact-me/index',[MessageController::class, 'index'])
+    ->name('contact-me.index');
+    
+Route::get('/mail-template',function() : View{
+    return View('emails.contact-mail');
+})->name('contact-mail-template');
 
 Route::get('/contact', [ContactController::class, "show"])->name('contact.show');
 Route::post('/contact', [ContactController::class, "send"])->name('contact.send');

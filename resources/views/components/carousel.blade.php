@@ -3,34 +3,22 @@
         @foreach($slides as $key => $slide)
         <div class="slide" id='slide-{{$key}}'>
             <div class="slide-content" >
+                
                 @if(isset($slide['titleSection']))
-                <div class="titleSection">
-                    @if(isset($slide['titleSection']['title']))
-                    <h2>{{$slide['titleSection']['title']}}</h2>
-                    @endif
-
-                    @if(isset($slide['titleSection']['content']))
-                    <p>{{$slide['titleSection']['content']}}</p>
-                    @endif
-                    
-                    @if(isset($slide['titleSection']['img']))
-                    <img src={{$slide['titleSection']['img']}}/>
-                    @endif
-                </div>
+                    @include('components.carousel.title',['titleSection'=>$slide['titleSection']])
                 @endif
 
+                @if(isset($slide['form']))
+                    @include('components.carousel.form',['form'=>$slide['form']])
+                @endif
+
+                @if(isset($slide['showcases']))
+                    @include('components.carousel.showcases',['showcases'=>$slide['showcases']])
+                @endif
+                
                 @if(isset($slide['articles']))
-                    <a href='#articles-{{$key}}' onclick="clearInterval(autoscroll)">« View more »</a>
-                    <div id="articles-{{$key}}">
-                    @foreach($slide['articles'] as $articleKey => $article)
-                        <article>
-                            <h1>{{$article['title']}}</h1>
-                            <div>{{$article['content']}}</div>
-                        </article>
-                    @endforeach
-                    </div>
+                    @include('components.carousel.articles',['articles'=>$slide['articles']])
                 @endif
-
             </div>
         </div>
         @endforeach
@@ -41,7 +29,6 @@
     @endif
     <button class="carousel-control prev" onclick="previous()"><</button>
     <button class="carousel-control next" onclick="next(); clearInterval(autoscroll)">></button>
-    
     <script>
         function scrollTo(hash) {
             location.hash = "#slide-" + (hash - 1);
@@ -71,17 +58,18 @@
         function makeScrollList(sections) {
             while (scrollIndex < sections) {
                 scrollIndex++;
-                let tab = document.createElement('i');
-                
-                if(scrollIndex == index){
-                    tab.classList.add("fa-sharp","fa-solid","fa-circle");
-                }
-                else{
-                    tab.classList.add("fa-sharp","fa-solid", "fa-circle");
-                }
-                scrollSection[0].append(tab);
             }
         }
         makeScrollList(sections);
+
+        let slides = document.getElementsByClassName('slide-content');
+        var slidesArray = Array.from(slides);
+        slidesArray.forEach(slide => {
+            
+            slide.addEventListener("scroll", function() {
+                console.log('scrolling');
+                clearInterval(autoscroll)
+            })
+        });
     </script>
 </div>
