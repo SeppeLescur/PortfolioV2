@@ -13,6 +13,9 @@ Route::get('/about',function() : View{
 Route::get('/projects',function() : View{
     return View('projects');
 })->name('projects');
+Route::get('/account',function() : View{
+    return View('account');
+})->name('account');
 
 Route::get('/contact-me/', [ContactController::class, "show"])->name('contact.show');
 Route::post('/contact-me/', [ContactController::class, "send"])->name('contact.send');

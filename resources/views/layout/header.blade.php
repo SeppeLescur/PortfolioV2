@@ -10,6 +10,7 @@
             <a href="{{route('about')}}" id="about">About</a>
             <a href="{{route('projects')}}" id="projects">Projects</a>
             <a href="{{route('contact.show')}}" id="contact-me">Contact me</a>
+            <a href="{{route('account')}}" id="account">Account</a>
         </nav>
     </div>
 </header>

@@ -29,7 +29,7 @@ body {
   overflow-y: hidden;
 }
 body > #content {
-  height: calc(100vh - 1.4 * var(--height-H-F));
+  min-height: calc(100vh - 1.4 * var(--height-H-F));
 }
 body > #content .carousel::-webkit-scrollbar {
   display: none;

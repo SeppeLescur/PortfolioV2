@@ -27,7 +27,7 @@ body {
     height: 100vh;
     overflow-y: hidden;
     >#content {
-        height: calc(100vh - 1.4 * var(--height-H-F));
+        min-height: calc(100vh - 1.4 * var(--height-H-F));
         .carousel::-webkit-scrollbar {
             display: none;
         }
@@ -161,25 +161,6 @@ body {
     }
     body{
         background-color: white;
-        >#content {
-        }
-        >header,>footer {
-        }
-        >header {
-            >* {
-            }
-            >#logo {
-                
-            }
-            >.right{
-                >#portfolio {
-                }
-                >nav {
-                }
-            }
-        }
-        footer {
-        }
     }
 }
 @media only screen and (max-width:1000px) {
@@ -189,25 +170,6 @@ body {
     }
     body{
         background-color: grey;
-        >#content {
-        }
-        >header,>footer {
-        }
-        >header {
-            >* {
-            }
-            >#logo {
-                
-            }
-            >.right{
-                >#portfolio {
-                }
-                >nav {
-                }
-            }
-        }
-        footer {
-        }
     }
 }
 @media only screen and (max-width:500px) {
@@ -217,24 +179,5 @@ body {
     }
     body{
         background-color: black;
-        >#content {
-        }
-        >header,>footer {
-        }
-        >header {
-            >* {
-            }
-            >#logo {
-                
-            }
-            >.right{
-                >#portfolio {
-                }
-                >nav {
-                }
-            }
-        }
-        footer {
-        }
     }
 }
