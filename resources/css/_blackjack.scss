@@ -1,0 +1,45 @@
+.blackjack {
+    height: 100%;
+    display: flex;
+    // display: none;
+    flex-flow: column;
+    .card {
+        margin-right: -20px;
+        width: 63px;
+        height: 88px;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        background-color: rgba(150, 150, 255, 1);
+        .suit, .value {
+            text-align: center;
+            border: none;
+            background: none;
+            font-size: x-large;
+        }
+    }
+    #dealer, #player{
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    #popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        >* {
+            position: fixed;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            opacity: 1;
+            transition: opacity 1s ease;
+            &.hidden {
+                opacity: 0;
+            }
+        }
+    } 
+}

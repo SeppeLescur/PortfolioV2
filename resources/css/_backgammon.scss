@@ -1,0 +1,49 @@
+#backgammon{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    display: none;
+    flex-flow: column;
+    .track{
+        background-color: grey;
+        height: 50%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(12,1fr);
+        grid-auto-flow: column;
+        .triangle {
+            width: 100%;
+            height: 100%;
+            border-left: 7.5vh solid transparent;
+            border-right: 7.5vh solid transparent;
+            .circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            .red{
+                background-color: red;
+            }
+            .black{
+                background-color: black;
+            }
+        }
+    }
+    .track:nth-child(even) .triangle:nth-child(odd) {
+        border-bottom: 30vh solid red;
+        border-top: none;
+    }
+    
+    .track:nth-child(even) .triangle:nth-child(even) {
+        border-bottom: 30vh solid white;
+    }
+    
+    .track:nth-child(odd) .triangle:nth-child(odd) {
+        border-top: 30vh solid white; 
+    }
+    
+    .track:nth-child(odd) .triangle:nth-child(even) {
+        border-top: 30vh solid red;
+    }
+}
+
