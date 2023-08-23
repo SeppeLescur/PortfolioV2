@@ -156,6 +156,15 @@ function endTurn() {
     while(dealer.handValue()[0] <= 16){
         dealer.draw();
     }
+    let playerValue = checkVictory(player);
+    let dealerValue = checkVictory(dealer);
+    if((!isNaN(playerValue) && !isNaN(dealerValue) && playerValue > dealerValue) || dealerValue == "bust"){
+        player.score ++;
+    }else{
+        dealer.score ++;
+    }
+    updateScore(player);
+    updateScore(dealer);
 }
 
 /**
