@@ -67,11 +67,7 @@ a {
 }
 
 #backgammon {
-  height: 100%;
   width: 100%;
-  display: flex;
-  display: none;
-  flex-flow: column;
 }
 #backgammon .track {
   background-color: grey;

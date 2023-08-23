@@ -5,8 +5,7 @@
 Projects
 @endsection
 @section('content')
-    <script src="{{ asset('js/menu.js') }}"></script>
-    <div class="blackjack" style="display: none;">
+    <div id="blackjack" hidden='hidden'>
         <div id="popup">
         </div>
         <div class="table">
@@ -37,7 +36,7 @@ Projects
             <button id='endTurn'>End turn</button>
         </div>
     </div>
-    <div id="backgammon" style="display: none;">
+    <div id="backgammon" hidden='hidden'>
         <div class="track">
             <div class="triangle"><div class="circle black"></div><div class="circle black"></div><div class="circle black"></div></div>
             <div class="triangle"></div>
@@ -68,4 +67,5 @@ Projects
         </div>
     </div>
     <script src="{{ asset('js/blackjack.js') }}"></script>
+    <script src="{{ asset('js/menu.js') }}"></script>
 @endsection

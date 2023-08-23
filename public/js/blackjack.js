@@ -153,11 +153,14 @@ function hit() {
  * TODO: let dealer account for aces
  */
 function endTurn() {
-    while(dealer.handValue()[0] <= 16){
+    //dealer draws
+    while(dealer.handValue()[0] <= 16 || dealer.handValue()[1] > 0){
         dealer.draw();
     }
-    let playerValue = checkVictory(player);
-    let dealerValue = checkVictory(dealer);
+    //get the ending values of the hands
+    let playerValue = player.handValue();
+    let dealerValue = dealer.handValue();
+
     if((!isNaN(playerValue) && !isNaN(dealerValue) && playerValue > dealerValue) || dealerValue == "bust"){
         player.score ++;
     }else{
@@ -169,11 +172,12 @@ function endTurn() {
 
 /**
  * Returns the hand value or game state.
- * If a gamestate is returned a popup is made. 
+ * 
  * @param {Player} p - Player to check.
+ * @param {Player} popup - True = if a gamestate is returned a popup is made. 
  * @returns The hand value or game state.
  */
-function checkVictory(p) {
+function checkVictory(p, popup = false) {
     let state = false;
     //blackjack
     if (p.handValue()[0] == 21) {
@@ -190,7 +194,7 @@ function checkVictory(p) {
     //default
     if(!state){
         state = p.handValue()[0];
-    }else{
+    }else if(popup){
         popup(state);
     }
 
@@ -284,4 +288,4 @@ function checkSplitable() {
     endButton.addEventListener('click',endTurn);
 
     let splitButton = document.getElementById('split');
-    splitButton.addEventListener('click',);
+    // splitButton.addEventListener('click',);
